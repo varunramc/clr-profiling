@@ -1,0 +1,32 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+.DS_Store
+/.vs
+bin/*
+!bin/x64
+!bin/EasyHook64.dll
+!bin/EasyHook32.dll
+/Injection/x64
+/InjectionDemo/obj/x64
+/InjectionDemo/obj/x86
+/ProfilerSandbox/obj/Debug
+/ProfilerSandbox/bin/Debug
+/ProfilingInjection/obj
+/CLR Profiling.sln.DotSettings.user
+/InjectionBootstrapper/x64/Debug
+/x64/Debug
+/UpgradeLog.htm
+/ProfilerSandbox/obj/Release
+/ProfilerHost/x64/Debug
+/Profiler/obj/x64
+/IpcGen/obj/Debug
+/IpcShared
+/packages
+/ProfilerCore/obj/x64
+/Profiler/obj
+/ProfilerCore/obj/Debug
+/ProfilerHost/x64/Release
+/ProfilingTarget/bin/Debug
+/ProfilingTarget/obj

@@ -1,0 +1,26 @@
+﻿syntax = "proto3";
+
+package profilerHostIpc;
+
+// RPC methods //
+service ProfilerHostIpc {
+    rpc GetProfilingConfig(Void) returns (ProfilingConfigMsg) {}
+    rpc RegisterMethod(MethodMetadataMsg) returns (Void) {}
+}
+
+// Messages //
+message Void {
+}
+
+message ProfilingConfigMsg {
+    bool shouldProfile = 1;
+    string namespaceToProfile = 2;
+    string profilerCoreDllPath = 3;
+}
+
+message MethodMetadataMsg {
+    uint64 token = 1;
+    string assemblyName = 2;
+    string typeName = 4;
+    string signature = 5;
+}

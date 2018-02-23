@@ -1,0 +1,6 @@
+LIBRARY "ProfilerHost.dll"
+
+EXPORTS
+    DllCanUnloadNow PRIVATE
+    DllGetClassObject PRIVATE
+    InjectProfilerCore @10
