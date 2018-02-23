@@ -1,7 +1,7 @@
 # CLR Profiler
 
 ## Overview
-This is an experimental CLR profiler primarily meant for continuous profiling of ASP.NET requests. It works by injecting a native profiler(based on the CLR Profiling API) into an ASP.NET process. The profiler uses IL rewriting to add instrumentation hooks on specific methods. Profiling data is streamed using GRPC to a profiling server.
+This is an experimental CLR profiler primarily meant for continuous profiling of ASP.NET requests. It works by injecting a native profiler(based on the CLR Profiling API) into an ASP.NET process. The profiler uses IL rewriting to add instrumentation hooks on specific methods. Profiling data is streamed to a profiling server using GRPC.
 
 ## Components
 * ***Profiler:*** This is the profiling server that listens to profiling data streamed from the profiling host.
@@ -22,6 +22,7 @@ Instrumenting every single request would be prohibitively expensive. Instead, sa
 When the profiling host decides to profile a particular request, it sets a flag in a thread local variable. This flag is propagated through thread switches by modifying the execution context save/resume methods:
 * `System.Threading.ExecutionContext.Capture()`
 * `System.Threading.ExecutionContext.RunInternal()`
+
 All the instrumented method hooks only work if the flag is set, thus adding no overhead when a request is not being profiled.
 
 ### Associating method hook calls with a ASP.NET request
